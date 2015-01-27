@@ -20,4 +20,33 @@ class HomeController extends BaseController {
 		return View::make('hello');
 	}
 
+	public function authenticate()
+	{
+		$validation = Validator::make(Input::all(),User::$auth_rules);
+
+		if($validation->fails())
+				{
+					return Redirect::back()->withInput()->withErrors($validation->messages());
+				}
+
+		$email    = Input::get('email');
+		$password = Input::get('password');
+
+		if(Auth::attempt(array('email' => $email, 'password' => $password)))
+		{
+
+			$user = Auth::user();
+			if($user->role == 1){
+				return Redirect::route('AdminIndex');
+			}
+			else {
+				## go Shopping
+			}
+			
+		}
+
+		return Redirect::back()->withInput(); 
+		Session::put('message', 'Sorry , no user was found with these credentials');
+	}
+
 }

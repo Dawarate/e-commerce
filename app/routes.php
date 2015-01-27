@@ -17,8 +17,22 @@ Route::get('/', function()
 });
 
 
+Route::get('/login', function(){
 
-Route::group(array('prefix' => 'admin'), function(){
+	if(Auth::check())
+		{
+			return Redirect::to('/');
+		}
+	return View::make('login');
+});
+
+
+
+
+Route::post('/authenticate', array('uses' => 'HomeController@authenticate', 'as' => 'authenticate'));
+
+
+Route::group(array('prefix' => 'admin', 'before' => 'auth'), function(){
 
 
 Route::get('/', array('uses' => 'AdminController@welcome', 'as' => 'AdminIndex'));
