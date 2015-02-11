@@ -1,0 +1,269 @@
+@import url('normalize.css');
+
+body{
+width: 100%;
+height: 900px;
+}
+
+header {
+	padding: 5px 5px;
+	background: #0c8edb;
+	height: 40px;
+	width: 100%;
+}
+#header-wrapper{
+	width: 80%;
+	
+	margin-left: auto;
+	margin-right: auto;
+	height: 100%;
+	padding-top: 10px;
+}
+#logo , #search-form, #mycart {
+	padding: 5px 5px;
+	display: inline-block;
+}
+#logo{
+	float: left;
+	width: 200px;
+	margin-right: 50px;
+	
+}
+a.logo { color: white;
+text-decoration: none;}
+#search-form {
+	float: left;
+	width: 300px;
+	margin: 0px 80px;
+}
+#search-form input{
+	padding: 3px 5px;
+	border-radius: 5px;
+	color: rgba(0,0,0,0.7);
+}
+#mycart {
+	
+	float: right;
+	margin-right: 55px;
+}
+
+
+/************  Wrapper *****************/
+
+#wrapper {
+	width: 90%;
+	margin-right: auto;
+	margin-left: auto;
+	border-right: solid 1px #373737;
+	border-left: solid 1px #373737;
+	height: 100%;
+    padding-top: 5px;
+}
+
+/* ---- products ---- */
+#categories {
+    width: 18%;
+    height: 90%;
+    float:left;
+    padding-left: 10px;
+}
+#categories ul li{
+   padding: 4px 5px;
+    margin: 5px 0px;
+    list-style: none;
+
+}
+#categories ul li.active{
+    background: #7DD5FF;
+    border-radius: 4px;
+}
+#categories ul li:hover {
+    background: #7DD5FF;
+    border-radius: 4px;
+}
+#categories ul li a{
+   text-decoration: none;
+   color: rgba(0,0,0,0.7);
+   font-weight: 700;
+}
+#products {
+    float: right;
+    width: 80%;
+    height: 90%;
+    text-align: center;
+}
+
+.product {
+    text-align: left;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    margin: 5px 30px;
+    width: 250px;
+    vertical-align: top;
+}
+.product h3 {
+    text-align: center;
+color: rgba(0,0,0,0.5);}
+.product img.feature {
+    margin-bottom: 10px;
+}
+
+.product a:link, .product a:visited {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+}
+.cart-btn {
+    padding: 10px 10px 10px 0;
+    background-color: #FFAA55;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+.cart-btn .price {
+    background-color: #2e373f;
+    padding: 10px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+}
+
+.cart-btn:link, .cart-btn:visited, button.cart-btn {
+    text-decoration: none;
+    color: #fff;
+    font-size: 12px;
+}
+
+button.cart-btn {
+    border: none;
+}
+
+.secondary-cart-btn {
+    background-color: #5daad0;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    box-shadow: 0px 5px 0px #467f9c;
+    border: none;
+}
+
+/*---- pagination ---- */
+
+#pagination {
+    height: 50px;
+    line-height: 50px;
+}
+
+#pagination ul {
+    list-style: none;
+}
+
+#pagination li {
+    display: inline;
+    margin-right: 10px;
+}
+
+#pagination a:link, #pagination a:visited {
+    color: #5daad0;
+    text-decoration: none;
+}
+
+/*---------- Quantity ------*/
+
+
+
+.outer {
+    display: none;
+    position: absolute;
+    height: 95%;
+    width: 90%;
+    background: rgba(0,0,0,0.4);
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.inner {
+    margin-left: auto;
+    margin-right: auto; 
+    width: 300px;
+    height: 100px;
+    background: #fff;
+    text-align: center;
+}
+
+/*----------------- Cart's Table --------------------*/
+
+table {
+    width: 100%;
+}
+
+table tr td {
+    color: #000;
+    border-right: dotted 1px #000;
+    border-bottom: dotted 1px #000;
+    padding-left: 5px;
+}
+table thead td {
+    background: #80D6FF;
+    height: 40px;
+    color: #fff;
+    border-right: dotted 1px #fff;
+
+    padding-left: 5px;
+}
+#pay a {
+    text-decoration: none;
+}
+input:disabled {
+    border: none;
+}
+#pay input[type='submit'] {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    padding: 6px 8px;
+    border: solid 3px rgba(0,0,0,0.3);
+    border-radius: 5px;
+    color: rgba(0,0,0,0.4);
+    display: block;
+    background:#80D6FF ;
+}
+#pay a:hover {
+   color: #fff;
+}
+
+
+
+/************** End Wrapper *************/
+footer {
+	background: #0c8edb;
+	height: 40px;
+	width: 100%;
+	color: white;
+
+}
+
+footer p, footer #accepted-methods {
+	
+	display: inline-block;
+}
+footer p {
+	padding-left: 40px;
+	float: left;
+	width: 500px;
+
+}
+footer #accepted-methods {
+	margin-right: 40px;
+	float: right;
+}

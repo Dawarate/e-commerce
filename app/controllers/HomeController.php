@@ -17,7 +17,9 @@ class HomeController extends BaseController {
 
 	public function showWelcome()
 	{
-		return View::make('hello');
+		$products   = Product::all();
+		$categories = Category::all();
+		return View::make('hello')->withCategories($categories)->withProducts($products);
 	}
 
 	public function authenticate()
@@ -49,4 +51,55 @@ class HomeController extends BaseController {
 		Session::put('message', 'Sorry , no user was found with these credentials');
 	}
 
+	public function search()
+		{
+			$categories = Category::where('name', 'LIKE', '%'.Input::get('query').'%')->get();
+			$products   = Product::where('name', 'LIKE', '%'.Input::get('query').'%')->orWhere('description', 'LIKE', '%'.Input::get('query').'%')->get();
+			return View::make('search',compact('categories'))->withProducts($products);
+
+		}
+
+	public function getCategory($id)
+		{
+			$categories = Category::all();
+			$products = Product::where('category_id', '=', $id)->get();
+
+			return View::make('category',compact('categories'))->withProducts($products)->withCurrent($id);
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
 }

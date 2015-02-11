@@ -13,7 +13,9 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+		$categories = Category::all();
+		$products   = Product::paginate(9);
+		return View::make('hello')->withCategories($categories)->withProducts($products);
 });
 
 
@@ -27,10 +29,14 @@ Route::get('/login', function(){
 });
 
 
-
+Route::get('/search', array('uses' => 'HomeController@search', 'as' => 'search'));
 
 Route::post('/authenticate', array('uses' => 'HomeController@authenticate', 'as' => 'authenticate'));
 
+
+Route::get('/category/{id}', array('uses' => 'HomeController@getCategory', 'as' => 'getCategory'));
+
+### Admin routes
 
 Route::group(array('prefix' => 'admin', 'before' => 'auth'), function(){
 
@@ -59,28 +65,5 @@ Route::get('/deleteProduct/{id}', array('uses' => 'AdminController@deleteProduct
 Route::get('/editProduct/{id}', array('uses' => 'AdminController@editProduct' , 'as' => 'EditProduct'));
 Route::post('/storeProduct', array('uses' => 'AdminController@storeProduct' , 'as' => 'storeProduct'));
 Route::post('/updateProduct/{id}', array('uses' => 'AdminController@updateProduct' , 'as' => 'updateProduct'));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 });
