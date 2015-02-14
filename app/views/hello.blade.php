@@ -20,7 +20,7 @@
 			        	array('class' => 'feature', 'width' => '240', 'height' => '127')) }}</a>
 			       <a href="#" class="product-name">  <h3> {{$product->name}}</h3> </a>
 					<p>
-			          <a href="#" class="cart-btn" >
+			          <a href="#" class="cart-btn" onClick="CartBox({{$product->id}});">
 			            <span class="price">
 			            	€ {{$product->price}}
 			            </span>

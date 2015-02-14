@@ -28,7 +28,8 @@ Route::get('/login', function(){
 	return View::make('login');
 });
 
-
+Route::post('/addToCart/{id}/{qtt}', 'HomeController@addToCart');
+Route::get('/myCart', 'HomeController@showCart');
 Route::get('/search', array('uses' => 'HomeController@search', 'as' => 'search'));
 
 Route::post('/authenticate', array('uses' => 'HomeController@authenticate', 'as' => 'authenticate'));
