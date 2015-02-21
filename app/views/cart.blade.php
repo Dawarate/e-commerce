@@ -16,15 +16,15 @@
 							<td> Quantity </td>
 							<td>  </td>
 						</thead>
-					{{ Form::open() }}	
+					{{ Form::open(array('route' => 'pay')) }}	
 					<?php $counter = 0; ?>
 					@foreach($cart_items as $item)
 
 							<tr>
 								<td> {{ HTML::image($item->image,$item->name, array( 'width' => '100', 'height' => '100')) }} </td>
-								<td> {{ $item->name }} </td>
-								<td> {{ $item->price}} </td>
-								<td> {{ $item->qtt }}  </td>
+								<td> {{ $item->name }} {{ Form::hidden('item_name'.$counter, $item->name )}}</td>
+								<td> {{ $item->price}} {{ Form::hidden('item_price'.$counter, $item->price )}}</td>
+								<td> {{ $item->qtt }}  {{ Form::hidden('item_qtt'.$counter, $item->qtt )}}</td>
 								<td> {{ $item->total }}</td>
 							</tr>
 							<?php $counter++; $total = $total + $item->total; ?>
@@ -35,11 +35,10 @@
 						 	<td></td>
 						 	<td></td>
 						 	<td> Total </td>
-						 	<td> {{$total}} </td>
+						 	<td> {{$total}} {{ Form::hidden('total', $total )}} </td>
 						 </tr>
 					</table>
 	
-
 	<div id="pay">
 		<a href="">{{ Form::submit('Pay with paypal') }}</a>
 	</div>	

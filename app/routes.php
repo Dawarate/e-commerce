@@ -18,6 +18,13 @@ Route::get('/', function()
 		return View::make('hello')->withCategories($categories)->withProducts($products);
 });
 
+##Paypal ROutes
+
+Route::post('/pay', ['as' => 'pay',
+					'uses' => 'PaypalController@pay']);
+
+Route::get('/payment_status', ['as' => 'paymentStatus',
+								'uses' => 'PaypalController@paymentStatus']);
 
 Route::get('/login', function(){
 

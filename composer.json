@@ -8,7 +8,8 @@
 		"laravel/framework": "4.2.*",
 		"way/generators": "~2.0",
 		"fzaninotto/faker" : "1.5.*@dev",
-		"intervention/image": "dev-master"
+		"intervention/image": "dev-master",
+		"paypal/rest-api-sdk-php":"*"
 	},
 	"autoload": {
 		"classmap": [
